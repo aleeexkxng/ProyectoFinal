@@ -45,7 +45,7 @@ class ComentarioController extends Controller
         ]);
         Comentario::create($request->all());
         
-        return redirect()->route('post-page', $request->post_id);    
+        return redirect()->route('post-page', $request->post_id)->with('message', 'Comentario creado existosamente!');    
     }
 
     /**
@@ -94,6 +94,6 @@ class ComentarioController extends Controller
         $data = Comentario::find($request->id);
         $data->isDeleted = true;
         $data->save();
-        return redirect()->route('post-page', $data->post_id);    
+        return redirect()->route('post-page', $data->post_id)->with('message', 'Comentario eliminado existosamente!');    
     }
 }

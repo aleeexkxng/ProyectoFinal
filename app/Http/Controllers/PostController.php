@@ -52,7 +52,7 @@ class PostController extends Controller
 
         $newPost->save();
         
-        return redirect()->route('index', compact('allTemas'));
+        return redirect()->route('index', compact('allTemas'))->with('message', 'Post creado existosamente!');  
     }
 
     /**
@@ -103,7 +103,7 @@ class PostController extends Controller
         $post->update($request->except('image_route', '_token', '_method'));
         $post->save();
        
-        return redirect()->route('post-page', compact('post','comentarios'));
+        return redirect()->route('post-page', compact('post','comentarios'))->with('message', 'Post actualizado existosamente!');
 
     }
 
@@ -118,6 +118,6 @@ class PostController extends Controller
         $allTemas = Tema::with('posts')->get();
         $post->isDeleted = true;
         $post->save();
-        return redirect()->route('index', compact('allTemas'));
+        return redirect()->route('index', compact('allTemas'))->with('message', 'Post eliminado existosamente!');  
     }
 }

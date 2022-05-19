@@ -9,6 +9,11 @@
 @endsection
 
 @section('content')
+    @if(session()->has('message'))
+            <div class="alert alert-success" text-align=left>
+                {{ session()->get('message') }}
+            </div>
+    @endif  
     <body id="page-top">
         @include('partials.navigation-bar')
         <!-- Masthead-->
