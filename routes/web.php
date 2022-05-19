@@ -42,6 +42,7 @@ Route::post('/email/verification-notification', function (Request $request) {
 /*   RUTAS PUBLICAS TEMA   */
 Route::get('/Tema/{tema}', [TemaController::class, 'show'])->name('posts');
 Route::get('/', [TemaController::class, 'index'])->name('index');
+Route::get('/Temas', [TemaController::class, 'showAll'])->name('all-themes');
 Route::resource('Tema', TemaController::class);
 
 /*   RUTAS ADMIN POST    */

@@ -44,18 +44,16 @@
         </div>
        
        @auth
-            @if (Auth::user()->isAdmin) 
-                <section class="Todos-los-posts`" id="boton">
-                    <div class="container px-4 px-lg-5">
-                        <div class="row gx-4 gx-lg-5 justify-content-center">
-                            <div class="col-lg-8 col-xl-6 text-center">
-                            <br>  
-                                <a class="btn btn-primary btn-xl" href="{{ route('add-new-post') }}">Crear post</a> 
-                            </div>
+            <section class="Todos-los-posts`" id="boton">
+                <div class="container px-4 px-lg-5">
+                    <div class="row gx-4 gx-lg-5 justify-content-center">
+                        <div class="col-lg-8 col-xl-6 text-center">
+                        <br>  
+                            <a class="btn btn-primary btn-xl" href="{{ route('add-new-post') }}">Crear post</a> 
                         </div>
                     </div>
-                </section>
-            @endif
+                </div>
+            </section>
         @endauth
         <!-- Footer-->
         <footer class="bg-light py-5">

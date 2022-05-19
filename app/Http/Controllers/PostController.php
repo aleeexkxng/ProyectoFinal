@@ -29,7 +29,6 @@ class PostController extends Controller
      */
     public function create()
     {
-        Gate::authorize('admin-functions');
         return view('add-new-post');
     }
 
@@ -41,7 +40,6 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        Gate::authorize('admin-functions');
         $request->validate([
             'title' => ['required','min:2','max:255'],
             'description' => ['required','min:5'],
@@ -65,7 +63,9 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return view('post-page', compact('post'));
+        $user=User::find($post->user_id);
+        $username=$user->name;
+        return view('post-page', compact('post','username'));
     }
     public function showComentarios(Post $post)
     {
@@ -81,7 +81,6 @@ class PostController extends Controller
      */
     public function edit(Request $request, Post $post)
     {
-        Gate::authorize('admin-functions');
         $data = Post::find($request->id);
         return view('edit-post', compact('data'));
     }
@@ -95,7 +94,6 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        Gate::authorize('admin-functions');
         $request->validate([
             'title' => ['required','min:2','max:255'],
             'description' => ['required','min:5'],
@@ -116,7 +114,6 @@ class PostController extends Controller
      */
     public function destroy(Request $request, Post $post)
     {
-        Gate::authorize('admin-functions');
         $post = Post::find($request->id);
         $allTemas = Tema::with('posts')->get();
         $post->isDeleted = true;

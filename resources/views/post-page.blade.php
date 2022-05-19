@@ -17,6 +17,7 @@
                     <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
                         <div class="col-lg-8">
                             <h1 class="text-white font-weight-bold">{{$post->title}}</h1>
+                            <h5 class="text-white font-weight-bold">Autor: {{$username}}</h5>
                             <hr class="divider" />
                         </div>
                         <div>
@@ -28,16 +29,14 @@
                             <p class="text-white-75 mb-5">Promedio:<br>{{$post->comentarios->avg('valoracion')}}/10</p>
                             <p class="text-white-75 mb-5">Descripción:<br>{{$post->description}}</p>
                             @auth
-                                @if (Auth::user()->isAdmin) 
-                                    <form method="GET" action="{{ route('Post.edit', $post) }}"> @csrf
-                                        <input type="hidden" name="id" value="{{ $post->id }}">
-                                        <button class="btn btn-secondary float" href="{{ route('Post.edit', $post) }}">Editar</button>
-                                    </form><br><br>
-                                    <form method="POST" action="{{ route('Post.delete', $post) }}"> @csrf
-                                        <input type="hidden" name="id" value="{{ $post->id }}">    
-                                        <button class="btn btn-secondary float">Eliminar</button>
-                                    </form>
-                                @endif
+                                <form method="GET" action="{{ route('Post.edit', $post) }}"> @csrf
+                                    <input type="hidden" name="id" value="{{ $post->id }}">
+                                    <button class="btn btn-secondary float" href="{{ route('Post.edit', $post) }}">Editar</button>
+                                </form><br><br>
+                                <form method="POST" action="{{ route('Post.delete', $post) }}"> @csrf
+                                    <input type="hidden" name="id" value="{{ $post->id }}">    
+                                    <button class="btn btn-secondary float">Eliminar</button>
+                                </form>
                             @endauth
                         </div>
                     </div>

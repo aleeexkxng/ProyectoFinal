@@ -48,7 +48,11 @@ class TemaController extends Controller
     public function show(Tema $tema)
     {
         $posts = Post::with('temas')->get();
-        return view('publicaciones', compact('tema', 'posts'));
+        return view('posts', compact('tema', 'posts'));
+    }
+    public function showAll(){
+        $allTemas = Tema::all();
+        return view('all-themes', compact('allTemas'));
     }
 
     /**
