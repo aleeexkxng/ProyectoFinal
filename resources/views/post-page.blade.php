@@ -42,18 +42,17 @@
                                             <a href="{{route('archivo.descargar', $archivo->id)}}">
                                                 {{$archivo->nombre}}
                                             </a>
-                                            @if(\Auth::user()->id == $post->user_id || \Auth::user()->isAdmin == true)
-                                                <form method="POST" action="{{ route('archivo.eliminar', $archivo) }}"> @csrf
-                                                    <input type="hidden" name="id" value="{{ $archivo->id }}">    
-                                                    <button class="btn btn-primary btn-sm ">Quitar archivo</button>
-                                                </form>
-                                            @endif
+                                            @auth
+                                                @if(\Auth::user()->id == $post->user_id || \Auth::user()->isAdmin == true)
+                                                    <form method="POST" action="{{ route('archivo.eliminar', $archivo) }}"> @csrf
+                                                        <input type="hidden" name="id" value="{{ $archivo->id }}">    
+                                                        <button class="btn btn-primary btn-sm ">Quitar archivo</button>
+                                                    </form>
+                                                @endif
+                                            @endauth
                                         @endforeach
                                     </div>
                             </div>
-
-
-
                             @auth
                                 <!-- Files input-->
                                 @if(\Auth::user()->id == $post->user_id || \Auth::user()->isAdmin == true)
@@ -116,6 +115,13 @@
                         <form action="{{ route('formulario-comentario', $post) }}" method="GET">
                             <button type="submit">Añade un comentario</button>
                         </form>
+                        @else
+                        <div class="card-footer">
+				            <div class="d-flex justify-content-center links">
+					          <a href="{{ route('login') }}">Inicia sesion </a>
+                              para agregar un comentario
+				            </div>
+			            </div>
                         @endauth
                     </div>
                 </div>

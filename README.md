@@ -18,7 +18,7 @@ Nuestro sitio vive por y para los usuarios y nuestra principal diferencia es que
 
 1. Clonar proyecto: `git clone https://github.com/aleeexkxng/ProyectoFinal
 2. Mover al directorio del proyecto con: `cd ProyectoFinal`
-3. Realizar la instalacion de dependencias con : `composer install`
+3. Realizar la instalacion de dependencias con : `composer install` o 'composer update' segun sea el caso.
 4. Crear un archivo .env en base al env.example con el comando : `cp .env.example .env`
 5. Generar llave de encriptación con: `php artisan key:generate`
 6. Configurar los datos de mailtrap en el archivo: `.env`
@@ -26,6 +26,7 @@ Nuestro sitio vive por y para los usuarios y nuestra principal diferencia es que
 8. Configurar nombre de base de datos en .env 
 9. Correr migraciones con: `php artisan migrate`
 10. Ejecutar seeds(Para rellenar con los datos de prueba): `php artisan db:seed`
+11. Link storage con : php artisan storage:link
 
 
 
