@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tema;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class TemaController extends Controller

@@ -8,6 +8,7 @@
             <ul class="navbar-nav ms-auto my-2 my-lg-0">
                 <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Inicio</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('/Posts') }}">Posts</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url('/Temas') }}">Temas</a></li>
                 @if (Route::has('login'))   
                     @auth
                         <li class="nav-item"><a class="nav-link" href="http://proyectofinal.test/user/profile">Ver Perfil</a></li> 

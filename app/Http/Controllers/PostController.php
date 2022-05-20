@@ -19,7 +19,8 @@ class PostController extends Controller
     public function index()
     {
         $posts= Post::all();
-        return view('all-posts',compact('posts'));
+        $allTemas= Tema::all();
+        return view('all-posts',compact('posts','allTemas'));
     }
 
     /**
@@ -29,7 +30,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('add-new-post');
+        $allTemas=Tema::all();
+        return view('add-new-post',compact('allTemas'));
     }
 
     /**
@@ -51,6 +53,11 @@ class PostController extends Controller
         $newPost->user_id=\Auth::user()->id;
 
         $newPost->save();
+        foreach($allTemas as $tema){
+            if($request->has($tema->name)){
+                $newPost->temas()->attach($tema->id);
+            }
+        }
         
         return redirect()->route('index', compact('allTemas'))->with('message', 'Post creado existosamente!');  
     }
@@ -82,7 +89,8 @@ class PostController extends Controller
     public function edit(Request $request, Post $post)
     {
         $data = Post::find($request->id);
-        return view('edit-post', compact('data'));
+        $allTemas= Tema::all();
+        return view('edit-post', compact('data','allTemas'));
     }
 
     /**
@@ -98,11 +106,20 @@ class PostController extends Controller
             'title' => ['required','min:2','max:255'],
             'description' => ['required','min:5'],
         ]);
+        $allTemas = Tema::all();
         $comentarios = Comentario::get();
         $post = Post::find($request->id);
-        $post->update($request->except('image_route', '_token', '_method'));
+        $post->update($request->except('_token', '_method'));
         $post->save();
-       
+        
+        foreach($allTemas as $tema){
+            if($request->has($tema->name)){
+                $post->temas()->attach($tema->id);
+            }
+            else{
+                $post->temas()->detach($tema->id);
+            }
+        }
         return redirect()->route('post-page', compact('post','comentarios'))->with('message', 'Post actualizado existosamente!');
 
     }

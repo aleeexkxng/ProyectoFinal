@@ -54,7 +54,7 @@
                     <div class="row gx-4 gx-lg-5 justify-content-center">
                         <div class="col-lg-8 col-xl-6 text-center">
                             <br>
-                            <a class="btn btn-primary btn-xl" href="{{ route('add-new-post') }}" >Crear post</a>
+                            <a class="btn btn-primary btn-xl" href="{{ route('add-new-post')}}" >Crear post</a>
                         </div>
                     </div>
                 </div>

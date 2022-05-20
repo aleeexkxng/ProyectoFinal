@@ -20,6 +20,12 @@
 			<div class="card-header">
 				<h3>Registro</h3>
 			</div>
+			 <!--Error or success message-->
+			 @if(session()->has('message'))
+            	<div class="alert alert-success" text-align=left>
+                	{{ session()->get('message') }}
+            	</div>
+       		 @endif  
 			<div class="card-body">
 				<form method="POST" action="{{ route('register')}}">
                 @csrf

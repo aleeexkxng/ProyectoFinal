@@ -48,7 +48,20 @@
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                           
+                            <!-- Generos number input-->
+                            <div class="form-floating mb-3">
+                                <div class="text-center mb-3">
+                                    <div class="fw-bolder">Temas</div>
+                                </div>
+                                @foreach($allTemas as $tema)
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id={{$tema->name}} name={{$tema->name}}>
+                                        <label class="form-check-label" for={{$tema->name}}>
+                                            {{$tema->name}}
+                                        </label>
+                                    </div>
+                                @endforeach
+                            </div>
                             <!-- Submit Button-->
                             <div class="d-grid"><button class="btn btn-primary btn-xl" id="submitButton" type="submit">Re-publicar post</button></div>
                         </form>

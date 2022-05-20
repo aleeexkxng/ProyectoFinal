@@ -15,7 +15,7 @@ class Post extends Model
         return $this->hasMany(Comentario::class);
     }
 
-    public function Temas()
+    public function temas()
     {
         return $this->belongsToMany(Tema::class);
     }

@@ -23,20 +23,22 @@
             </div>
         </section>
         <!-- Portfolio-->
+        <br><br>
         <div id="portfolio">
             <div class="container-fluid p-0">
-                <div class="row g-0">
-                    @foreach ($allTemas as $tem)
+                <div class="row gx-4 align-items-center justify-content-center text-center">
+                    @foreach ($allTemas as $tema)
+                        <br>
                         <div class="col-lg-4 col-sm-6">
-                            <form action="{{ route('posts', $tem) }}" method="GET">
+                            <form action="{{ route('posts', $tema) }}" method="GET">
                                 <button class="portfolio-box img-button" type="submit">
                                     <div class="portfolio-box-caption">
-                                        <div class="project-category text-white-50">Tema</div>
-                                        <div class="project-name">{{ $tem->name }}</div>
+                                        <div class="project-name"><b>{{ $tema->name }}</b></div>
                                     </div>
                                 </button>
                             </form>
                         </div>
+                        <br>
                     @endforeach
                 </div>
             </div>

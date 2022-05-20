@@ -26,13 +26,13 @@
                             <hr class="divider" />
                         </div>
                         <div>
-                            <p class="text-white-75 mb-5">Temas:<br>
-                            <!--    @foreach($post->temas as $tema)
-                                    {{ $tema->name }} 
+                            <p class="text-white-75 mb-5"><b> Temas:</b><br>
+                                @foreach($post->temas as $tema)
+                                    -{{ $tema->name }} <br>
                                 @endforeach
-                            </p>-->
-                            <p class="text-white-75 mb-5">Promedio:<br>{{$post->comentarios->avg('valoracion')}}/10</p>
-                            <p class="text-white-75 mb-5">Descripción:<br>{{$post->description}}</p>
+                            </p>
+                            <p class="text-white-75 mb-5"><b>Promedio:</b><br>{{$post->comentarios->avg('valoracion')}}/10</p>
+                            <p class="text-white-75 mb-5"><b>Descripción:</b><br>{{$post->description}}</p>
                             @auth
                                 <form method="GET" action="{{ route('Post.edit', $post) }}"> @csrf
                                     <input type="hidden" name="id" value="{{ $post->id }}">
