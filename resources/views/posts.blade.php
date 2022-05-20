@@ -10,6 +10,12 @@
 
 @section('content')
     <body id="page-top">
+    <!--Error or success message-->
+    @if(session()->has('message'))
+        <div class="alert alert-success" text-align=left>
+            {{ session()->get('message') }}
+        </div>
+    @endif  
     <!--Navigation-->
     @include('partials.navigation-bar')
        <!-- Contact-->

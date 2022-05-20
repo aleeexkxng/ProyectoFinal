@@ -34,7 +34,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-email"></i></span>
 						</div>
-						<input type="email" class="form-control" placeholder="Correo@ejemplo.com" name="email" id="email">
+						<input type="email" class="form-control" placeholder="TuCorreo@example.com" name="email" id="email">
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
@@ -46,19 +46,21 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-repassword"></i></span>
 						</div>
-						<input type="password" class="form-control" placeholder="Confirme la Contraseña" name="password_confirmation" id="password_confirmation">
+						<input type="password" class="form-control" placeholder="Confirmar Contraseña" name="password_confirmation" id="password_confirmation">
 					</div>
                     <div class="row align-items-center remember">
+						<br><br>
 						<input type="checkbox">Acepto los terminos y condiciones
 					</div>
 					<div class="form-group">
+						<br>
 						<input type="submit" value="Registrarse" class="btn float-right login_btn">
 					</div>
 				</form>
 			</div>
 			<div class="card-footer">
 				<div class="d-flex justify-content-center links">
-					¿Ya tienes una cuenta?<a href="{{ route('login') }}">Inicia sesion!</a>
+					¿Ya tienes una cuenta?<a href="{{ route('login') }}">Inicia sesion aquí</a>
 				</div>
 			</div>
 		</div>

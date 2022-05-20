@@ -27,7 +27,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="email" class="form-control" placeholder="Correo@ejemplo.com" name="email" id="email">
+						<input type="email" class="form-control" placeholder="MiCorreo@example.com" name="email" id="email">
 						
 					</div>
 					<div class="input-group form-group">
@@ -37,19 +37,21 @@
 						<input type="password" class="form-control" placeholder="Contraseña" name="password" id="password">
 					</div>
                     <div class="row align-items-center remember">
-						<input type="checkbox">Recordarme
+						<br><br>
+						<input type="checkbox">Recuerdame
 					</div>
 					<div class="form-group">
-						<input type="submit" value="Login" class="btn float-right login_btn">
+						<br>
+						<input type="submit" value="Iniciar sesión" class="btn float-right login_btn">
 					</div>
 				</form>
 			</div>
 			<div class="card-footer">
 				<div class="d-flex justify-content-center links">
-					¿No tienes una cuenta?<a href="{{ route('register') }}">Registrate!</a>
+					¿Aun no tienes una cuenta?<a href="{{ route('register') }}">Registrate aquí!</a>
 				</div>
-				<div class="d-flex justify-content-center">
-					<a href="{{ route('password.request') }}">Olvidaste tu contraseña?</a>
+				<div class="d-flex justify-content-center links">
+					<a href="{{ route('password.request') }}">¿Olvidaste tu contraseña?</a>
 				</div>
 			</div>
 		</div>

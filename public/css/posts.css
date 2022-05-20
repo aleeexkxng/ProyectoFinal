@@ -10980,22 +10980,21 @@ header.masthead h1, header.masthead .h1 {
 #portfolio .container-fluid .portfolio-box .portfolio-box-caption, #portfolio .container-sm .portfolio-box .portfolio-box-caption, #portfolio .container-md .portfolio-box .portfolio-box-caption, #portfolio .container-lg .portfolio-box .portfolio-box-caption, #portfolio .container-xl .portfolio-box .portfolio-box-caption, #portfolio .container-xxl .portfolio-box .portfolio-box-caption {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  justify-content: left;
+  flex-direction: row;
   width: 100%;
   height: 100%;
   position: absolute;
-  margin-right: 1px;
-  margin-top: 1px;
-  margin-bottom: 1px;
-  margin-left: 1px;
+  margin-right: 1px auto;
+  margin-top: 1px auto;
+  margin-bottom: 1px auto;
+  margin-left: 1px auto;
   opacity: 0.5;
   bottom: 0;
   text-align: center;
   color: #000;
   background: rgb(255,126,0);
   transition: opacity 0.25s ease;
-  text-align: center;
 }
 #portfolio .container-fluid .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-sm .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-md .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-lg .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-xl .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-xxl .portfolio-box .portfolio-box-caption .project-category {
   font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
