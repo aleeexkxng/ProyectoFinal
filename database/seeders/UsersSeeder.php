@@ -20,14 +20,14 @@ class UsersSeeder extends Seeder
             'name' => 'Alex16',
             'email' => 'alex@test.com', 
             'email_verified_at' => now(), 
-            'password' => Hash::make('password'), 
+            'password' => Hash::make('contraAdmin'), 
             'isAdmin' => true
         ]); 
         User::create([
             'name' => 'Andrea',
             'email' => 'livi@test.com', 
             'email_verified_at' => now(), 
-            'password' => Hash::make('password'), 
+            'password' => Hash::make('contraUser'), 
             'isAdmin' => false
         ]); 
     }

@@ -111,13 +111,10 @@ class PostController extends Controller
         $post = Post::find($request->id);
         $post->update($request->except('_token', '_method'));
         $post->save();
-        
+        $post->temas()->detach();
         foreach($allTemas as $tema){
             if($request->has($tema->name)){
                 $post->temas()->attach($tema->id);
-            }
-            else{
-                $post->temas()->detach($tema->id);
             }
         }
         return redirect()->route('post-page', compact('post','comentarios'))->with('message', 'Post actualizado existosamente!');

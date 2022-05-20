@@ -33,8 +33,8 @@ Nuestro sitio vive por y para los usuarios y nuestra principal diferencia es que
 
 ### Admin:
 alex@test.com<br>
-password
+contraAdmin
 
 ### Usuario:
 livi@test.com<br>
-password
+contraUser

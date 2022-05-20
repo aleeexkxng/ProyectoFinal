@@ -55,7 +55,7 @@
                                 </div>
                                 @foreach($allTemas as $tema)
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id={{$tema->name}} name={{$tema->name}}>
+                                        <input class="form-check-input" type="checkbox" id={{$tema->name}} name={{$tema->name}} {{array_search($tema->id, $data->temas->pluck('id')->toArray()) !== false ? 'checked' : '' }}>
                                         <label class="form-check-label" for={{$tema->name}}>
                                             {{$tema->name}}
                                         </label>
