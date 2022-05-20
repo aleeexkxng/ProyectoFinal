@@ -25,7 +25,6 @@
                             <h5 class="text-white font-weight-bold">Autor: {{$username}}</h5>
                             <hr class="divider" />
                         </div>
-                        <div>
                             <p class="text-white-75 mb-5"><b> Temas:</b><br>
                                 @foreach($post->temas as $tema)
                                     -{{ $tema->name }} <br>
@@ -33,15 +32,52 @@
                             </p>
                             <p class="text-white-75 mb-5"><b>Promedio:</b><br>{{$post->comentarios->avg('valoracion')}}/10</p>
                             <p class="text-white-75 mb-5"><b>Descripción:</b><br>{{$post->description}}</p>
+                            <!-- Files display-->
+                            <div class="form-floating mb-3">
+                                    <div class="text-center mb-3">
+                                        <div class="fw-bolder">Archivos</div>
+                                    </div>
+                                    <div class="form-check">
+                                        @foreach($post->archivos as $archivo)
+                                            <a href="{{route('archivo.descargar', $archivo->id)}}">
+                                                {{$archivo->nombre}}
+                                            </a>
+                                            @if(\Auth::user()->id == $post->user_id || \Auth::user()->isAdmin == true)
+                                                <form method="POST" action="{{ route('archivo.eliminar', $archivo) }}"> @csrf
+                                                    <input type="hidden" name="id" value="{{ $archivo->id }}">    
+                                                    <button class="btn btn-primary btn-sm ">Quitar archivo</button>
+                                                </form>
+                                            @endif
+                                        @endforeach
+                                    </div>
+                            </div>
+
+
+
                             @auth
-                                <form method="GET" action="{{ route('Post.edit', $post) }}"> @csrf
-                                    <input type="hidden" name="id" value="{{ $post->id }}">
-                                    <button class="btn btn-secondary float" href="{{ route('Post.edit', $post) }}">Editar</button>
-                                </form><br><br>
-                                <form method="POST" action="{{ route('Post.delete', $post) }}"> @csrf
-                                    <input type="hidden" name="id" value="{{ $post->id }}">    
-                                    <button class="btn btn-secondary float">Eliminar</button>
-                                </form>
+                                <!-- Files input-->
+                                @if(\Auth::user()->id == $post->user_id || \Auth::user()->isAdmin == true)
+                                    <div class="form-floating mb-3">
+                                            <div class="text-center mb-3">
+                                                <div class="fw-bolder">Sube un archivo para complementar tu post (OPCIONAL)</div>
+                                            </div>
+                                            <div class="form-check">
+                                                {{Form::open(['route'=> ['archivo.store'],'files'=>true])}} 
+                                                    {{ Form::hidden('post_id', $post->id) }}
+                                                    {{ Form::file('archivos[]', ['multiple'=>'multiple']) }}
+                                                    {{ Form::submit('Guardar archivo',['class'=>'btn btn-primary btn-sm'])}}
+                                                {{Form::close()}}
+                                            </div>
+                                    </div>
+                                    <form method="GET" action="{{ route('Post.edit', $post) }}"> @csrf
+                                        <input type="hidden" name="id" value="{{ $post->id }}">
+                                        <button class="btn btn-secondary float" href="{{ route('Post.edit', $post) }}">Editar</button>
+                                    </form><br><br>
+                                    <form method="POST" action="{{ route('Post.delete', $post) }}"> @csrf
+                                        <input type="hidden" name="id" value="{{ $post->id }}">    
+                                        <button class="btn btn-secondary float">Eliminar post</button>
+                                    </form>
+                                @endif
                             @endauth
                         </div>
                     </div>

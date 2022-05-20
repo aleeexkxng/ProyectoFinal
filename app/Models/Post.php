@@ -19,4 +19,7 @@ class Post extends Model
     {
         return $this->belongsToMany(Tema::class);
     }
+    public function archivos(){
+        return $this->hasMany(Archivo::class);
+    }
 }

@@ -62,6 +62,8 @@
                                     </div>
                                 @endforeach
                             </div>
+
+                            <div>
                             <!-- Submit Button-->
                             <div class="d-grid"><button class="btn btn-primary btn-xl" id="submitButton" type="submit">Re-publicar post</button></div>
                         </form>

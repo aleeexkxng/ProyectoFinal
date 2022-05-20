@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Controllers\TemaController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ArchivoController;
 use App\Http\Controllers\ComentarioController;
 
 /*
@@ -61,6 +62,11 @@ Route::post('/post/comentario/destroy', [ComentarioController::class, 'destroy']
 /*   RUTAS PUBLICAS COMENTARIO    */
 Route::post('Comentario.store', [ComentarioController::class, 'store'])->name('Comentario.store')->middleware('auth');;
 Route::get('/Post/{post}/Nuevo-Comentario', [ComentarioController::class, 'create'])->name('formulario-comentario')->middleware('auth');;
+/* RUTAS ARCHIVO*/
+Route::post('archivo', [ArchivoController::class,'store'])->name('archivo.store');
+Route::get('archivo/{archivo}/descargar', [ArchivoController::class,'descargar'])->name('archivo.descargar');
+Route::post('archivo/{archivo}/eliminar', [ArchivoController::class,'eliminar'])->name('archivo.eliminar');
+
 
 Route::resource('Comentario', ComentarioController::class);
 
