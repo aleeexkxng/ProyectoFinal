@@ -22,7 +22,7 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8 col-xl-6 text-center">
-                        <h2 class="mt-0">Danos tu opinión!</h2>
+                        <h2 class="mt-0">Comparte tu opinión</h2>
                         <hr class="divider" />
                     </div>
                 </div>
@@ -35,14 +35,15 @@
                         <form action="{{ route('Comentario.store') }}" method="POST">
                             @csrf
                             <!-- Valoracion -->
-                            <div class="form-floating mb-3">
+                            <div class="form-floating mb-3 justify-content-center text-center">
                                 <label for="calificacion">Califica este post.</label>
                                 <input type="range" min="0" max="10" step="1" list="valoracion" name="valoracion" id="valoracion">
                             </div>
                             <!-- Comentario -->
+                            <br><br>
                             <div class="form-floating mb-3">
                                 <textarea class="form-control" name="contenido" id="contenido" type="text" placeholder="Escribe tu comentario aqui->" style="height: 10rem" data-sb-validations="required"></textarea>
-                                <label for="contenido">Contenido</label>
+                                <label for="contenido">Escribe tu comentario aquí</label>
                                 <div class="invalid-feedback" data-sb-feedback="message:required">El contenido comentario es necesario!</div>
                             </div>
                             @error('contenido')

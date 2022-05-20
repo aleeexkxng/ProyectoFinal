@@ -92,8 +92,7 @@ class ComentarioController extends Controller
     {
         Gate::authorize('admin-functions');
         $data = Comentario::find($request->id);
-        $data->isDeleted = true;
-        $data->save();
+        $data->forceDelete();
         return redirect()->route('post-page', $data->post_id)->with('message', 'Comentario eliminado existosamente!');    
     }
 }
